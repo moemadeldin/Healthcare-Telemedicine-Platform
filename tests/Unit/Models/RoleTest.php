@@ -25,7 +25,7 @@ final class RoleTest extends TestCase
     }
 
     #[Test]
-    public function test_it_returns_belongs_to_many_relationship(): void
+    public function it_returns_belongs_to_many_relationship(): void
     {
         $relation = $this->role->users();
 

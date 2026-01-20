@@ -6,6 +6,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Enums\Roles;
+use App\Enums\UserStatus;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,6 +25,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string|null $password
  * @property string|null $verification_code
  * @property Carbon|null $verification_code_expire_at
+ * @property UserStatus $status
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -99,6 +101,8 @@ final class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'verification_code' => 'string',
             'verification_code_expire_at' => 'datetime',
+            'status' => UserStatus::class,
+            'role' => Roles::class,
         ];
     }
 }

@@ -31,7 +31,7 @@ final class UserTest extends TestCase
     }
 
     #[Test]
-    public function test_it_can_assign_a_role_to_user(): void
+    public function it_can_assign_a_role_to_user(): void
     {
         $this->user->assignRole(Roles::ADMIN->value);
 
@@ -41,7 +41,7 @@ final class UserTest extends TestCase
     }
 
     #[Test]
-    public function test_it_cannot_assign_multiple_roles_to_user(): void
+    public function it_cannot_assign_multiple_roles_to_user(): void
     {
         $this->user->assignRole(Roles::ADMIN->value);
         $this->user->assignRole(Roles::DOCTOR->value);
@@ -50,7 +50,7 @@ final class UserTest extends TestCase
     }
 
     #[Test]
-    public function test_it_does_not_duplicate_roles_when_assigning_same_role_twice(): void
+    public function it_does_not_duplicate_roles_when_assigning_same_role_twice(): void
     {
         $this->user->assignRole(Roles::ADMIN->value);
         $this->user->assignRole(Roles::ADMIN->value);
@@ -59,7 +59,7 @@ final class UserTest extends TestCase
     }
 
     #[Test]
-    public function test_it_throws_exception_when_assigning_non_existent_role(): void
+    public function it_throws_exception_when_assigning_non_existent_role(): void
     {
         $this->expectException(ModelNotFoundException::class);
 
@@ -67,7 +67,7 @@ final class UserTest extends TestCase
     }
 
     #[Test]
-    public function test_it_can_check_if_user_has_a_specific_role(): void
+    public function it_can_check_if_user_has_a_specific_role(): void
     {
         $this->user->assignRole(Roles::DOCTOR->value);
 
@@ -77,7 +77,7 @@ final class UserTest extends TestCase
     }
 
     #[Test]
-    public function test_it_can_check_if_user_is_admin(): void
+    public function it_can_check_if_user_is_admin(): void
     {
         $this->assertFalse($this->user->isAdmin());
 
@@ -87,7 +87,7 @@ final class UserTest extends TestCase
     }
 
     #[Test]
-    public function test_it_can_check_if_user_is_doctor(): void
+    public function it_can_check_if_user_is_doctor(): void
     {
         $this->assertFalse($this->user->isDoctor());
 
@@ -97,7 +97,7 @@ final class UserTest extends TestCase
     }
 
     #[Test]
-    public function test_it_can_check_if_user_is_patient(): void
+    public function it_can_check_if_user_is_patient(): void
     {
         $this->assertFalse($this->user->isPatient());
 
@@ -107,7 +107,7 @@ final class UserTest extends TestCase
     }
 
     #[Test]
-    public function test_it_returns_belongs_to_many_relationship(): void
+    public function it_returns_belongs_to_many_relationship(): void
     {
         $relation = $this->user->roles();
 

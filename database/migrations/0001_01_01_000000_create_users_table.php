@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Enums\UserStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,6 +20,7 @@ return new class extends Migration
             $table->string('email')->index()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
+            $table->string('status')->index()->default(UserStatus::NOT_VERIFIED->value);
             $table->string('verification_code')->index()->nullable();
             $table->timestamp('verification_code_expire_at')->index()->nullable();
             $table->rememberToken();
