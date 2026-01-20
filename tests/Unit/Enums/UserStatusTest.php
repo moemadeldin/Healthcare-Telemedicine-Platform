@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Enums;
 
-use App\Enums\Roles;
 use App\Enums\UserStatus;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
