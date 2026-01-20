@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('personal_access_tokens', function (Blueprint $table): void {
             $table->id();
-            $table->morphs('tokenable');
+            $table->uuidMorphs('tokenable');
             $table->text('name');
             $table->string('token', 64)->unique();
             $table->text('abilities')->nullable();
@@ -23,13 +23,5 @@ return new class extends Migration
             $table->timestamp('expires_at')->nullable()->index();
             $table->timestamps();
         });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('personal_access_tokens');
     }
 };
