@@ -20,12 +20,11 @@ use Laravel\Sanctum\HasApiTokens;
 
 /**
  * @property string $id
- * @property string|null $name
+ * @property string|null $first_name
+ * @property string|null $last_name
  * @property string|null $email
  * @property Carbon|null $email_verified_at
  * @property string|null $password
- * @property string|null $verification_code
- * @property Carbon|null $verification_code_expire_at
  * @property UserStatus $status
  * @property string|null $remember_token
  * @property Carbon|null $created_at
@@ -104,12 +103,11 @@ final class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'name' => 'string',
+            'first_name' => 'string',
+            'last_name' => 'string',
             'email' => 'string',
             'password' => 'hashed',
             'email_verified_at' => 'datetime',
-            'verification_code' => 'string',
-            'verification_code_expire_at' => 'datetime',
             'status' => UserStatus::class,
             'role' => Roles::class,
         ];
