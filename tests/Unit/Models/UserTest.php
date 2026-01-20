@@ -9,6 +9,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -112,5 +113,13 @@ final class UserTest extends TestCase
         $relation = $this->user->roles();
 
         $this->assertInstanceOf(BelongsToMany::class, $relation);
+    }
+
+    #[Test]
+    public function it_returns_code_has_one_relationship(): void
+    {
+        $relation = $this->user->verificationCode();
+
+        $this->assertInstanceOf(HasOne::class, $relation);
     }
 }

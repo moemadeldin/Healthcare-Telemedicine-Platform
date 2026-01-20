@@ -21,8 +21,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('status')->index()->default(UserStatus::NOT_VERIFIED->value);
-            $table->string('verification_code')->index()->nullable();
-            $table->timestamp('verification_code_expire_at')->index()->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
